@@ -1,0 +1,29 @@
+name: CI-Build-Docker-Image
+
+on:
+    pull_request:
+        branches:
+            - main
+            - dev
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+    cancel-in-progress: false
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: build docker image
+              run: |
+                  docker build -t timwu039/youtube-clone:latest .
+                  docker tag timwu039/youtube-clone:latest timwu039/youtube-clone:1.0.1
+                  docker tag timwu039/youtube-clone:latest timwu039/youtube-clone:1.0
+                  docker tag timwu039/youtube-clone:latest timwu039/youtube-clone:1
+            - name: push to dockerhub
+              run: |
+                  docker login --username timwu039 --password ${{ secrets.DOCKERHUB_TOKEN }}
+                  docker push timwu039/youtube-clone:latest
+                  docker push timwu039/youtube-clone:1.0.1
+                  docker push timwu039/youtube-clone:1.0
+                  docker push timwu039/youtube-clone:1
