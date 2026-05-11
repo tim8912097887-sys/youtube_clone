@@ -1,1 +1,26 @@
 @import 'tailwindcss';
+
+.custom-sidebar {
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox: hidden by default */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Chrome, Safari, Edge */
+.custom-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-sidebar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.custom-sidebar:hover {
+    scrollbar-width: thin; /* Firefox: show on hover */
+    scrollbar-color: #d4d4d4 transparent;
+}
+
+.custom-sidebar:hover::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4; /* Tailwind neutral-300 */
+}
