@@ -7,6 +7,7 @@ const SmallSidebar = () => {
 
     return (
         <aside
+            data-testid="small-sidebar"
             className={`sticky top-0 flex-none flex-col pb-4 ml-1 overflow-y-auto no-scrollbar
        hidden sm:flex lg-hidden ${expand && 'sm:hidden'} ${!expand && 'lg:flex'}`}
         >
