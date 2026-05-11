@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vitest } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Button from '../../components/common/Button';
-import { baseClass, SIZE_MAPS, VARIANT_MAPS } from '../../configs/button';
+import Button from '../../../components/common/Button';
+import { baseClass, SIZE_MAPS, VARIANT_MAPS } from '../../../configs/button';
 
 describe('Button', () => {
     it('When provide no props, should render Button with defaut class', () => {
