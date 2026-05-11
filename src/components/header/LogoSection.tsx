@@ -14,7 +14,12 @@ const LogoSection = ({ showFullSearch }: LogoSectionProps) => {
         <div
             className={`gap-4 items-center shrink-0 ${showFullSearch ? 'hidden md:flex' : 'flex'}`}
         >
-            <Button variant="ghost" size="icon" onClick={() => toggleExpand()}>
+            <Button
+                data-testid="expand-button"
+                variant="ghost"
+                size="icon"
+                onClick={() => toggleExpand()}
+            >
                 <Menu />
             </Button>
             <a href="/">

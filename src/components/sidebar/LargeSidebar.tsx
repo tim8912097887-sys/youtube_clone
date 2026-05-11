@@ -12,6 +12,7 @@ const LargeSidebar = () => {
 
     return (
         <aside
+            data-testid="large-sidebar"
             className={`w-56 flex-none flex-col pb-4 px-2 gap-2 custom-sidebar overflow-y-auto bg-white
             hidden lg:flex lg:sticky ${expand && 'sm:flex sm:sticky'} ${!expand && 'lg:hidden'} top-0`}
         >
